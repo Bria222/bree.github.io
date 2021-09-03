@@ -1,0 +1,55 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4 text-info">Angular 8 Todo App</h1>
+    <p class="lead">i built  this simple application using angular framework  it might look simple but it has a good 
+      basics start
+    </p>
+    <div class="card" style="width:18rem;">
+      <div class="card-body bg-secondary">
+        <h5 class="card-title text-warning text-center">BRIAN</h5>
+        <p class="card-text text-center">software engineer at prime tech</p>
+      </div>
+      <a href="#" class="btn btn-primary">visit Briantech webpage</a>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-8 align-self-center">
+      <input type="text" name="todoText" class="form-control" [(ngModel)]="todoText" (keyup.enter)="onAddTodoText()" />
+    </div>
+    <div class="col-2">
+      <button class="btn btn-sm btn-primary btn-block" (click)="onAddTodoText()">Add</button>
+      
+    </div>
+    <div class="col-2">
+    <button class="btn btn-sm btn-primary btn-block" (click)="onClearTodoText()">Clear</button>
+    </div>
+  </div>
+  
+  <hr>
+
+
+  <div class="row">
+    <div class="col">
+      <div *ngIf="isTodoListEmpty">
+        <p>List is empty!</p>
+      </div>
+      <div class="list-group" *ngIf="!isTodoListEmpty">
+        <a href="#" class="list-group-item list-group-item-action" *ngFor="let todo of todoList">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1" [ngClass]="todo.isCompleted ? 'strike':''">{{todo.text}}</h5>
+            <button class="btn btn-sm btn-primary" (click)="onCompletingTask(todo.todoId)">{{todo.buttonText}}</button>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="row">
+    <h3>footer</h3>
+  </div>
